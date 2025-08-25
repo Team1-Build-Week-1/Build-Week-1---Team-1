@@ -1,0 +1,40 @@
+body {
+  /* allineo  */
+  text-align: justify;
+  /* colore testo per la pagina */
+  color: white;
+  /* immagine di sfondo */
+  background-image: url(./img/bg.jpg);
+  /* aggiusto la size */
+  background-size: cover;
+}
+
+#Container {
+  /* rendo il container centrale verticalmente e orizzontalmente */
+  padding-inline: 5%;
+  padding-block: 2em;
+}
+
+#Logo {
+  /* allineo il logo */
+  text-align: left;
+  margin-bottom: 20em;
+}
+header img {
+  /* regolo la grandezza dell`immagine */
+  height: 4em;
+}
+
+#Timer {
+  /* allineamneto timer sulla destra */
+  text-align: right;
+}
+
+h1 {
+  margin-block: 2em;
+}
+
+main {
+  /* aggoingo il margine per separare il main  da footer e header */
+  margin-block: 2em;
+}

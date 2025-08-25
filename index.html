@@ -3,23 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+
+    <link rel="stylesheet" href="assets/style.css" />
+    <title>benchmark page</title>
   </head>
   <body>
-    <header>
-      <img src="assets/epicode_logo.png" alt="epicode logo" />
-      <div id="Timer">
-        <p>seconds</p>
-      </div>
-    </header>
-    <h1>Question?</h1>
-    <input type="checkbox" />
-    <input type="checkbox" />
-    <input type="checkbox" />
-    <input type="checkbox" />
-
-    <footer>
-      <h4>QUESTION 1/10</h4>
-    </footer>
+    <!-- contenitore centrato -->
+    <div id="Container">
+      <!-- header con logo e timer per domanda -->
+      <header>
+        <div id="Logo">
+          <img src="assets/img/epicode_logo.png" alt="epicode logo" />
+        </div>
+      </header>
+      <!-- main con domanda e risposte -->
+      <main>
+        <div id="Timer">
+          <p>
+            seconds
+            <br />
+            <span>15</span>
+            <br />
+            remain
+          </p>
+        </div>
+        <h1>
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga, rem! Rem praesentium nam molestias, ipsa eveniet nostrum voluptates numquam nesciunt
+          sit ut expedita corporis vel doloribus dolor suscipit fugit soluta. ?
+        </h1>
+        <input type="checkbox" />
+        <input type="checkbox" />
+        <input type="checkbox" />
+        <input type="checkbox" />
+      </main>
+      <!-- footer con numero domanda corrente  -->
+      <footer>
+        <h4>QUESTION 1/10</h4>
+      </footer>
+    </div>
   </body>
 </html>
