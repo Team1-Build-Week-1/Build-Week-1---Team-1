@@ -51,9 +51,36 @@ main {
 }
 
 .div1 {
-  background-color: beige;
   width: 23%;
   height: 300px;
+}
+.div1 h2 {
+  color: white;
+  font-weight: 400;
+  font-size: 50px;
+}
+
+.div3 {
+  width: 23%;
+  height: 300px;
+}
+
+.div3 h2 {
+  color: white;
+  font-weight: 400;
+  font-size: 50px;
+}
+
+.wrong1 {
+  color: white;
+  font-weight: 600;
+  font-size: 35px;
+}
+
+.wrong2 {
+  color: white;
+  font-size: 22px;
+  font-weight: lighter;
 }
 
 /* CERCHIO ESTERNO */
@@ -63,12 +90,6 @@ main {
   width: 450px;
   height: 450px;
   background: conic-gradient(magenta 0% 33%, cyan 0% 100%);
-}
-
-.div3 {
-  background-color: greenyellow;
-  width: 23%;
-  height: 300px;
 }
 
 /* CERCHIO INTERNO */
