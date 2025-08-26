@@ -1,7 +1,3 @@
-* {
-  box-sizing: border-box;
-}
-
 body {
   background-image: url(../../assets/bg.jpg);
   background-repeat: no-repeat;
@@ -11,19 +7,17 @@ body {
   font-size: 16px;
   font-weight: 200;
   height: 804px;
-  text-align: center;
 }
 
 .logo img {
   width: 200px;
   margin-bottom: 25px;
-  margin-right: 800px;
 }
 
 h1 {
   color: #ffffff;
   font-size: 60px;
-  font-weight: bold;
+  font-weight: normal;
   font-family: "Outfit", sans-serif;
   line-height: 50px;
 }
@@ -42,56 +36,24 @@ h2 {
 .instructions {
   color: #ffffff;
   font-family: "Inter", sans-serif;
-  padding-bottom: 15px;
+  padding-bottom: 35px;
   margin-top: 0;
-  font-weight: 300;
-  font-size: 25px;
 }
 
-/* STELLINE */
-
-.stars {
-  margin-bottom: 50px;
+ul {
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
 }
 
-.spenta {
-  height: 70px;
-  padding-top: 20px;
+li {
+  line-height: 25px;
 }
 
-.inputComment {
+.input {
   display: inline-block;
   color: #ffffff;
   font-family: "Inter", sans-serif;
-  font-weight: 300;
-  font-size: 22px;
 }
-
-/* INPUT */
-
-.action {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  font-family: "Inter", sans-serif;
-  margin-top: 30px;
-  color: darkgray;
-}
-
-input {
-  display: block;
-  margin: auto;
-  width: 50%;
-  width: 800px;
-  height: 40px;
-  border-style: none;
-  border-bottom: 4px solid #900080;
-  background-color: transparent;
-  padding-left: 25px;
-}
-
-/* BOTTONE INFO */
 
 button {
   background-color: #00ffff;
@@ -102,6 +64,15 @@ button {
   font-weight: bold;
 }
 
-.moreInfo {
-  padding: 50px;
+.action {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "Inter", sans-serif;
+  margin-top: 70px;
+}
+
+.action p {
+  font-weight: normal;
 }
