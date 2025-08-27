@@ -94,7 +94,39 @@ const questions = [
   },
 ];
 
+// VARIABILI GLOBALI
+
 let indexCurrent = 0;
+let timerInterval;
+
+// ELEMENTI DEL DOM
+
+const question = document.getElementById("domanda");
+const answer = document.getElementById("contenitoreRisposte");
+const timer = document.getElementById("seconds");
+
+const timerCounter = function () {
+  let passing = 120;
+  timer.innerHTML = passing;
+
+  function gong() {
+    timer.innerHTML = passing;
+    passing--;
+
+    if (passing >= 0) {
+      timerInterval = setTimeout(gong, 1000);
+    } else {
+      indexCurrent++;
+      if (indexCurrent < questions.length) {
+        showQuestion(indexCurrent);
+      } else {
+        window.location.href = "paginaRisultati.html";
+      }
+    }
+  }
+
+  setTimeout(gong, 1000);
+};
 
 const shuffleQuestions = function () {
   for (let i = questions.length - 1; i > 0; i--) {
@@ -105,30 +137,39 @@ const shuffleQuestions = function () {
   }
 };
 
-const question = document.getElementById("domanda");
-const answer = document.getElementById("contenitoreRisposte");
-
 const showQuestion = function (index) {
   const domande = questions[index];
   document.getElementById("domanda").innerHTML = domande.question;
 
-  // const rightAnswer = document.getElementsByClassName("risposta1");
   let answers = [];
   answers.push(domande.correct_answer);
-  console.log(answers);
   domande.incorrect_answers.forEach((incorretto) => answers.push(incorretto));
-  console.log(answers);
-  // randomizzazione posizione risposte
-  answers.sort(() => Math.random() - 0, 5);
 
-  for (let i = 0; i <= 4; i++) {
-    let label = document.getElementById("risposta" + (i + 1));
-    if (i < answers.length) {
+  // randomizza risposte
+  answers.sort(() => Math.random() - 0.5);
+
+  console.log("Tipo domanda:", domande.type);
+
+  // quante risposte voglio mostrare
+  let numAnswers = domande.type === "multiple" ? 4 : 2;
+
+  // prendo tutti i label già presenti nell'HTML
+  const labels = document.querySelectorAll(".risposta");
+
+  // aggiorno solo quelli necessari
+  labels.forEach((label, i) => {
+    if (i < numAnswers) {
+      label.style.display = "inline-block";
       label.innerHTML = `<input type="radio" name="answer" /> ${answers[i]}`;
+    } else {
+      label.style.display = "none"; // nascondo gli altri
     }
-  }
+  });
 
   nextInput();
+
+  clearTimeout(timerInterval);
+  timerCounter();
 };
 
 // mostra la prima domanda quando la pagina è pronta
