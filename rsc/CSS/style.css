@@ -42,8 +42,7 @@ main {
   /* lo spinge a destra */
   margin-left: auto;
   /* ombreggiatura interna e esterna */
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5),
-    inset 5px 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5), inset 5px 5px 15px rgba(0, 0, 0, 0.3);
   font-weight: bold;
 }
 
@@ -112,4 +111,35 @@ button:hover {
   width: 250px;
   margin-left: auto;
   font-weight: bolder;
+}
+
+.risposta input {
+  display: none;
+}
+
+#contenitoreRisposte {
+  text-align: center;
+}
+
+.risposta {
+  display: inline-block;
+  width: 47%;
+  /* ricreo sfondo e bordo sfumato delle caselle */
+  background-color: rgba(255, 255, 255, 0.089);
+  border: solid 2px;
+  border-top-color: rgba(240, 248, 255, 0.363);
+  border-left: solid rgba(240, 248, 255, 0.363) 2px;
+  border-right: solid rgba(240, 248, 255, 0.363) 2px;
+  border-bottom: 0px;
+  border-radius: 35px;
+  text-align: center;
+  padding-block: 20px;
+  margin: 20px;
+  font-weight: bolder;
+}
+
+/* cursore su casella risposta */
+.risposta:hover {
+  cursor: pointer;
+  background-color: purple;
 }
