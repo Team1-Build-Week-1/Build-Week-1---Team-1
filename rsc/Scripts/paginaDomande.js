@@ -104,9 +104,10 @@ let timerInterval;
 const question = document.getElementById("domanda");
 const answer = document.getElementById("contenitoreRisposte");
 const timer = document.getElementById("seconds");
+const contatore = document.querySelector("h4");
 
 const timerCounter = function () {
-  let passing = 120;
+  let passing = 5;
   timer.innerHTML = passing;
 
   function gong() {
@@ -118,6 +119,9 @@ const timerCounter = function () {
     } else {
       indexCurrent++;
       if (indexCurrent < questions.length) {
+        contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${
+          questions.length
+        }`;
         showQuestion(indexCurrent);
       } else {
         window.location.href = "paginaRisultati.html";
@@ -180,7 +184,6 @@ window.onload = function () {
 
 function nextQuestion() {
   const nextBtn = document.querySelector("button");
-  const contatore = document.querySelector("h4");
   let c = 2;
 
   // pulsante next con contatore domande
@@ -200,7 +203,6 @@ nextQuestion();
 
 function nextInput() {
   const inputClick = document.querySelectorAll("input[type=radio]");
-  const contatore = document.querySelector("h4");
 
   inputClick.forEach((input) => {
     input.addEventListener("click", function () {
