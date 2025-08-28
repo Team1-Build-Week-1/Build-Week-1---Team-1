@@ -11,8 +11,7 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     category: "Science: Computers",
-    question:
-      "According to the International System of Units, how many bytes are in a kilobyte of RAM?",
+    question: "According to the International System of Units, how many bytes are in a kilobyte of RAM?",
     correct_answer: "1000",
     incorrect_answers: ["512", "1024", "500"],
   },
@@ -20,8 +19,7 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     category: "Science: Computers",
-    question:
-      "The C programming language was created by this American computer scientist. ",
+    question: "The C programming language was created by this American computer scientist. ",
     correct_answer: "Dennis Ritchie",
     incorrect_answers: ["Tim Berners Lee", "al-Khwārizmī", "Willis Ware"],
   },
@@ -37,8 +35,7 @@ const questions = [
     type: "boolean",
     difficulty: "easy",
     category: "Science: Computers",
-    question:
-      "Pointers were not used in the original C programming language; they were added later on in C++.",
+    question: "Pointers were not used in the original C programming language; they were added later on in C++.",
     correct_answer: "False",
     incorrect_answers: ["True"],
   },
@@ -46,8 +43,7 @@ const questions = [
     type: "boolean",
     difficulty: "easy",
     category: "Science: Computers",
-    question:
-      "The NVidia GTX 1080 gets its name because it can only render at a 1920x1080 screen resolution.",
+    question: "The NVidia GTX 1080 gets its name because it can only render at a 1920x1080 screen resolution.",
     correct_answer: "False",
     incorrect_answers: ["True"],
   },
@@ -65,18 +61,13 @@ const questions = [
     category: "Science: Computers",
     question: "In computing, what does LAN stand for?",
     correct_answer: "Local Area Network",
-    incorrect_answers: [
-      "Long Antenna Node",
-      "Light Access Node",
-      "Land Address Navigation",
-    ],
+    incorrect_answers: ["Long Antenna Node", "Light Access Node", "Land Address Navigation"],
   },
   {
     type: "boolean",
     difficulty: "easy",
     category: "Science: Computers",
-    question:
-      "The Python programming language gets its name from the British comedy group &quot;Monty Python.&quot;",
+    question: "The Python programming language gets its name from the British comedy group &quot;Monty Python.&quot;",
     correct_answer: "True",
     incorrect_answers: ["False"],
   },
@@ -84,8 +75,7 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     category: "Science: Computers",
-    question:
-      "Which company was established on April 1st, 1976 by Steve Jobs, Steve Wozniak and Ronald Wayne?",
+    question: "Which company was established on April 1st, 1976 by Steve Jobs, Steve Wozniak and Ronald Wayne?",
     correct_answer: "Apple",
     incorrect_answers: ["Microsoft", "Atari", "Commodore"],
   },
@@ -126,9 +116,7 @@ const timerCounter = function () {
     } else {
       indexCurrent++;
       if (indexCurrent < questions.length) {
-        contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${
-          questions.length
-        }`;
+        contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${questions.length}`;
         showQuestion(indexCurrent);
       } else {
         showFinalScore();
@@ -177,7 +165,7 @@ const showQuestion = function (index) {
   labels.forEach((label, i) => {
     if (i < numAnswers) {
       label.style.display = "inline-block";
-      label.innerHTML = `<input type="radio" name="answer" /> ${answers[i]}`;
+      label.innerHTML = `<input type="radio" name="answer" value= "${answers[i]}"/> ${answers[i]} `;
       label.style.cssText = "";
     } else {
       label.style.display = "none";
@@ -234,15 +222,34 @@ function nextQuestion() {
   const nextBtn = document.querySelector("button");
 
   nextBtn.addEventListener("click", function () {
-    if (indexCurrent < questions.length - 1) {
-      indexCurrent++;
-      contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${
-        questions.length
-      }`;
-      showQuestion(indexCurrent);
-    } else {
-      showFinalScore();
-    }
+    nextBtn.disabled = true;
+
+    const radios = document.querySelectorAll('input[name="answer"]');
+    radios.forEach((r) => {
+      if (r.value === questions[indexCurrent].correct_answer) {
+        r.parentElement.style.border = "solid 2px green";
+      } else {
+        r.parentElement.style.border = "solid 2px red";
+      }
+    });
+
+    setTimeout(() => {
+      // reset selezione
+
+      //reset background
+      const radios = document.querySelectorAll('input[name="answer"]');
+      radios.forEach((r) => (r.parentElement.style.border = ""));
+      radios.forEach((r) => (r.parentElement.style.backgroundColor = ""));
+
+      if (indexCurrent < questions.length - 1) {
+        indexCurrent++;
+        contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${questions.length}`;
+        showQuestion(indexCurrent);
+      } else {
+        showFinalScore();
+      }
+      nextBtn.disabled = false;
+    }, 2000);
   });
 }
 
