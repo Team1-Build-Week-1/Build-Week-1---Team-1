@@ -93,26 +93,104 @@ const shuffleQuestions = function () {
 const question = document.getElementById("domanda");
 const answer = document.getElementById("contenitoreRisposte");
 
+//inizializziazione variabili
+let timer;
+let score = 0;
+let rispostaUtente;
+let indexCurrent = 0;
+let c = 1;
+
+console.log(questions.length);
+
+//funzione che aggiorna contatore
+function goNextQuestion() {
+  indexCurrent++;
+  c++;
+  contatore.innerHTML = `QUESTION ${c} /10`;
+
+  if (indexCurrent < questions.length) {
+    showQuestion(indexCurrent);
+  } else {
+    window.location.href = "paginaRisultati.html";
+  }
+}
+
+//---------------------------funzione PRINCIPALE---------------------------------
 const showQuestion = function (index) {
+  //prendiamo i singoli oggetti dell`array
   const domande = questions[index];
   document.getElementById("domanda").innerHTML = domande.question;
 
-  // const rightAnswer = document.getElementsByClassName("risposta1");
+  //creiamo un array vuoto che riempiamo conn tutte le answer
   let answers = [];
   answers.push(domande.correct_answer);
   console.log(answers);
   domande.incorrect_answers.forEach((incorretto) => answers.push(incorretto));
   console.log(answers);
   // randomizzazione posizione risposte
-  answers.sort(() => Math.random() - 0, 5);
+  answers.sort(() => Math.random() - 0.5);
 
-  for (let i = 0; i <= 4; i++) {
+  //prendiamo le risposte e le mettiamo nelle label
+  for (let i = 0; i < 4; i++) {
     let label = document.getElementById("risposta" + (i + 1));
     if (i < answers.length) {
-      label.innerHTML = `<input type="radio" name="answer" /> ${answers[i]}`;
+      //ripristiniamo il numero di label
+      label.style.display = "inline-block";
+      label.innerHTML = `<input type="radio" name="answer" value= "${answers[i]}"/> ${answers[i]} `;
+    } else {
+      //se le risposte sono due nascondiamo le due label in più.
+      label.style.display = "none";
     }
   }
+
+  ///creiamo la costante radios presa dall inner html precedente e gli assegna un evento click
+  const radios = document.querySelectorAll('input[name="answer"]');
+  radios.forEach((radio) => {
+    radio.onclick = () => {
+      // resetta background di tutte le label
+      radios.forEach((r) => (r.parentElement.style.backgroundColor = ""));
+
+      // assegna la risposta selezionata
+      rispostaUtente = radio.value;
+      console.log("Risposta selezionata:", rispostaUtente);
+
+      // evidenzia la label cliccata
+      radio.parentElement.style.backgroundColor = "#900080";
+    };
+  });
+
+  // creiamo un timer che faccia in modo che allo scadere una risposta non data venga considerata sbagliata
+  // allo scadere del timer viene eseguito quello che contiene
+  timer = setTimeout(() => {
+    if (rispostaUtente === undefined) {
+      console.log("risposta errata");
+    } else {
+      //se invece la risposta viene data verifichiamo che sia corretta e se lo è aggiorniamo lo score
+      if (rispostaUtente === domande.correct_answer) {
+        score++;
+        console.log("Punteggio aggiornato:", score);
+      }
+    }
+
+    // qui viene resettata la risposta utente
+    rispostaUtente = undefined;
+
+    //aggiorniamo il contatore
+    indexCurrent++;
+    c++;
+    contatore.innerHTML = `QUESTION ${c}/10`;
+
+    if (indexCurrent < questions.length) {
+      showQuestion(indexCurrent);
+    } else {
+      //local storage
+      localStorage.setItem("lunghezzaTest", questions.length);
+      localStorage.setItem("score", score);
+      window.location.href = "paginaRisultati.html";
+    }
+  }, 15000); // 15 secondi
 };
+//--------------------------- FINE funzione PRINCIPALE---------------------------------
 
 // mostra la prima domanda quando la pagina è pronta
 window.onload = function () {
@@ -120,20 +198,42 @@ window.onload = function () {
   showQuestion(0);
 };
 
-let indexCurrent = 0;
-
+//prendiamo il bottone e l`h4 contenente la risposta dall`html
 const nextBtn = document.querySelector("button");
 const contatore = document.querySelector("h4");
-let c = 2;
 
-// pulsante next con contatore domande
 nextBtn.addEventListener("click", function () {
+  // cancella il timer per evitare doppio incremento
+  clearTimeout(timer);
+
+  // valutiamo subito la risposta utente
+  if (rispostaUtente !== undefined) {
+    if (rispostaUtente === questions[indexCurrent].correct_answer) {
+      score++;
+      console.log("Punteggio aggiornato:", score);
+    }
+  } else {
+    console.log("Nessuna risposta selezionata: considerata sbagliata");
+  }
+
+  // reset selezione
+  rispostaUtente = undefined;
+
+  //reset background
+  const radios = document.querySelectorAll('input[name="answer"]');
+  radios.forEach((r) => (r.parentElement.style.backgroundColor = ""));
+
+  // aggiorno contatore
   indexCurrent++;
-  contatore.innerHTML = `QUESTION ${c} /10`;
   c++;
+  contatore.innerHTML = `QUESTION ${c}/10`;
+
   if (indexCurrent < questions.length) {
     showQuestion(indexCurrent);
   } else {
+    //local storage
+    localStorage.setItem("lunghezzaTest", questions.length);
+    localStorage.setItem("score", score);
     window.location.href = "paginaRisultati.html";
   }
 });
