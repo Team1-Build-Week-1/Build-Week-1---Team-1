@@ -1,64 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
-      rel="stylesheet"
-    />
-    <title>Feedback Page</title>
-    <link rel="stylesheet" href="./rsc/CSS/feedback.css" />
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+    rel="stylesheet" />
+  <title>Feedback Page</title>
+  <link rel="stylesheet" href="./rsc/CSS/feedback.css" />
+</head>
 
-    <div class="logo">
-      <img src="./assets/epicode_logo.png" alt="epicode_logo" />
-    </div>
+<body>
 
-    <div>
-      <h1>Tell us how it's going</span></h1>
-    </div>
+  <div class="logo">
+    <img src="./assets/epicode_logo.png" alt="epicode_logo" />
+  </div>
 
-    <div>
-      <p class="instructions">
-        From 0 to 10, how likely are you to recommend EPICODE to a friend or a collegue?
-      </p>
-    </div>
+  <div>
+    <h1>Tell us how it's going</span></h1>
+  </div>
 
-    <div class="stars">
-      <img src="./assets/star.svg" alt="">
-    <img src="./assets/star.svg" alt="">
-    <img src="./assets/star.svg" alt="">
-    <img src="./assets/star.svg" alt="">
-    <img src="./assets/star.svg" alt="">
-    <img src="./assets/star.svg" alt="">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Star_empty.svg" class="spenta" alt="vuota">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Star_empty.svg" class="spenta" alt="vuota">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Star_empty.svg" class="spenta" alt="vuota">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/4/49/Star_empty.svg" class="spenta" alt="vuota">
+  <div>
+    <p class="instructions">
+      From 0 to 10, how likely are you to recommend EPICODE to a friend or a collegue?
+    </p>
+  </div>
 
-    </div>
-    <div>
-      <p class="inputComment">Leave us an open feedback about your experience so far</p>
-    </div>
-    
-    <div class="action">
-        <input type="text" id="promise-checkbox" placeholder="Write your comment here"/>
-    </div>
-    
-    <div class="moreInfo">
-     <button>SEND FEEDBACK</button>
-    </div>
+  <div class="stars">
+    <img id="star1" class="inactive starBox" src="./assets/star.svg" alt="">
+    <img id="star2" class="inactive starBox" src="./assets/star.svg" alt="">
+    <img id="star3" class="inactive starBox" src="./assets/star.svg" alt="">
+    <img id="star4" class="inactive starBox" src="./assets/star.svg" alt="">
+    <img id="star5" class="inactive starBox" src="./assets/star.svg" alt="">
+    <img id="star6" class="inactive starBox" src="./assets/star.svg" alt="">
+    <img id="star7" class="inactive starBox" src="./assets/star.svg" alt="">
+    <img id="star8" class="inactive starBox" src="./assets/star.svg" alt="">
+    <img id="star9" class="inactive starBox" src="./assets/star.svg" alt="">
+    <img id="star10" class="inactive starBox" src="./assets/star.svg" alt="">
 
-  </body>
+  </div>
+  <div>
+    <p class="inputComment">Leave us an open feedback about your experience so far</p>
+  </div>
+
+  <div class="action">
+    <input type="text" id="feedback-comment" placeholder="Write your comment here" />
+  </div>
+
+  <div class="moreInfo">
+    <button disabled id="feedback-btn">SEND FEEDBACK</button>
+  </div>
+
+</body>
+<script src="./rsc/Scripts/feedback.js"></script>
+
 </html>

@@ -54,10 +54,14 @@ h2 {
   margin-bottom: 50px;
 }
 
-.spenta {
-  height: 70px;
-  padding-top: 20px;
+.active {
+  filter: grayscale(0);
 }
+
+.inactive {
+  filter: grayscale(1);
+}
+
 
 .inputComment {
   display: inline-block;
@@ -89,16 +93,34 @@ input {
   border-bottom: 4px solid #900080;
   background-color: transparent;
   padding-left: 25px;
+  color: #ffffff;
 }
 
 /* BOTTONE INFO */
 
 button {
+  /* background-color: #00ffff; */
+
+  background-color: grey;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  /* box-shadow: 0 0 15px #00ffff; */
+  box-shadow: 0 0 15px grey;
+  color: rgba(54, 54, 54, 0.692);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* classe bottone attivo per javascript */
+.buttonActive {
   background-color: #00ffff;
+
   border: none;
   padding: 15px 30px;
   font-size: 1.2rem;
   box-shadow: 0 0 15px #00ffff;
+
   font-weight: bold;
 }
 
