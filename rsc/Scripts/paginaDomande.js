@@ -190,7 +190,7 @@ const showQuestion = function (index) {
     }
   }, 15000); // 15 secondi
 };
-//--------------------------- FINE funzione PRINCIPALE---------------------------------
+//--------------------------- FINE funzione PRINCIPALE ---------------------------------
 
 // mostra la prima domanda quando la pagina è pronta
 window.onload = function () {
@@ -202,9 +202,11 @@ window.onload = function () {
 const nextBtn = document.querySelector("button");
 const contatore = document.querySelector("h4");
 
+// --------------------------- funzione NEXTBTN --------------------------------------------
 nextBtn.addEventListener("click", function () {
   // cancella il timer per evitare doppio incremento
   clearTimeout(timer);
+  nextBtn.disabled = true;
 
   // valutiamo subito la risposta utente
   if (rispostaUtente !== undefined) {
@@ -219,21 +221,35 @@ nextBtn.addEventListener("click", function () {
   // reset selezione
   rispostaUtente = undefined;
 
-  //reset background
+  // evidenzia soluzioni
   const radios = document.querySelectorAll('input[name="answer"]');
-  radios.forEach((r) => (r.parentElement.style.backgroundColor = ""));
+  radios.forEach((r) => {
+    if (r.value === questions[indexCurrent].correct_answer) {
+      r.parentElement.style.border = "solid 2px green";
+    } else {
+      r.parentElement.style.border = "solid 2px red";
+    }
+  });
 
-  // aggiorno contatore
-  indexCurrent++;
-  c++;
-  contatore.innerHTML = `QUESTION ${c}/10`;
+  setTimeout(() => {
+    // reset selezione
+    rispostaUtente = undefined;
+    //reset background
+    const radios = document.querySelectorAll('input[name="answer"]');
+    radios.forEach((r) => (r.parentElement.style.border = ""));
+    // aggiorno contatore
+    indexCurrent++;
+    c++;
+    contatore.innerHTML = `QUESTION ${c}/10`;
 
-  if (indexCurrent < questions.length) {
-    showQuestion(indexCurrent);
-  } else {
-    //local storage
-    localStorage.setItem("lunghezzaTest", questions.length);
-    localStorage.setItem("score", score);
-    window.location.href = "paginaRisultati.html";
-  }
+    if (indexCurrent < questions.length) {
+      showQuestion(indexCurrent);
+    } else {
+      //local storage
+      localStorage.setItem("lunghezzaTest", questions.length);
+      localStorage.setItem("score", score);
+      window.location.href = "paginaRisultati.html";
+    }
+    nextBtn.disabled = false;
+  }, 1000);
 });
