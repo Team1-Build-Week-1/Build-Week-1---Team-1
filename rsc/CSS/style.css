@@ -12,20 +12,19 @@ body {
   font-weight: lighter;
   font-style: normal;
   letter-spacing: 2px;
+  background-repeat: none;
 }
 
 #Container {
   /* rendo il container centrale verticalmente e orizzontalmente */
   padding-inline: 5%;
-  padding-block: 2em;
 }
 
-#Logo {
-  /* allineo il logo */
-  text-align: left;
-  margin-bottom: 10em;
+.block {
+  display: block;
 }
-header img {
+
+img {
   /* regolo la grandezza dell`immagine */
   height: 4em;
 }
@@ -35,15 +34,23 @@ main {
 }
 #Timer {
   text-align: center;
+  margin-left: auto;
   width: 130px;
   height: 130px;
+  margin-bottom: 20px;
   border: solid #900080 20px;
-  border-radius: 50%;
+
   /* lo spinge a destra */
-  margin-left: auto;
+
+  border-radius: 50%;
+
   /* ombreggiatura interna e esterna */
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5), inset 5px 5px 15px rgba(0, 0, 0, 0.3);
+
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.3);
   font-weight: bold;
+  position: relative;
+  bottom: 80px;
 }
 
 h1 {

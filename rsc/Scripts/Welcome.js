@@ -1,25 +1,21 @@
-// richiamo checkbox e bottone
-const checkPromise = document.getElementById("promise-checkbox");
-const proceed = document.getElementById("buttonProceed");
+const btn = document.getElementById("proceedBtn");
+const checkbox = document.getElementById("promise-checkbox");
 
-// creo una funzione che verifica la checkbox, se checked applica classe e attiva il bottone, altrimenti lo disabilita
-const attivaBt = function () {
-  if (checkPromise.checked) {
-    proceed.disabled = false;
-    proceed.classList.remove("button");
-    proceed.classList.add("buttonActive");
+btn.addEventListener("click", () => {
+  if (!checkbox.checked) {
+    alert("You must first select the checkbox!");
   } else {
-    proceed.disabled = true;
-    proceed.classList.remove("buttonActive");
-    proceed.classList.add("button");
+    window.location.href = "./paginaDomande.html";
+    checkbox.checked = false;
   }
-};
-// addeventlistener per fare in modo che la funzione si attivi ogni volta che avviene un change sulla checkbox
-checkPromise.addEventListener("change", attivaBt);
+});
 
-proceed.addEventListener("click", function (e) {
-  e.preventDefault();
-  if (!proceed.disabled) {
-    window.location.href = "paginaDomande.html";
+checkbox.addEventListener("change", () => {
+  if (checkbox.checked) {
+    btn.classList.remove("buttonUnchecked");
+    btn.classList.add("buttonChecked");
+  } else {
+    btn.classList.remove("buttonChecked");
+    btn.classList.add("buttonUnchecked");
   }
 });

@@ -55,37 +55,25 @@ li {
   font-family: "Inter", sans-serif;
 }
 
-label:hover {
-  cursor: pointer;
-}
-
-button {
-  /* background-color: #00ffff; */
-
-  background-color: grey;
+.buttonUnchecked {
+  background-color: black;
+  color: red;
   border: none;
   padding: 15px 30px;
-  font-size: 1.2rem;
-  /* box-shadow: 0 0 15px #00ffff; */
-  box-shadow: 0 0 15px grey;
-  color: rgba(54, 54, 54, 0.692);
+  font-size: 2rem;
+  box-shadow: 0 0 15px red;
   font-weight: bold;
 }
 
-/* classe bottone attivo per javascript */
-.buttonActive {
+.buttonChecked {
   background-color: #00ffff;
-
+  color: floralwhite;
+  font-weight: bolder;
   border: none;
   padding: 15px 30px;
-  font-size: 1.2rem;
-  box-shadow: 0 0 15px #00ffff;
-
+  font-size: 2rem;
+  box-shadow: 0 0 15px white;
   font-weight: bold;
-}
-
-button:hover {
-  cursor: pointer;
 }
 
 .action {

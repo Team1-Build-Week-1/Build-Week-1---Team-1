@@ -133,9 +133,15 @@ button {
   margin: auto;
   width: 20%;
   height: 70px;
-  background-color: #401668;
-  border: 2px solid white;
   margin-top: 100px;
+  background-color: grey;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  box-shadow: 0 0 15px grey;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .txtBtn {
@@ -143,4 +149,8 @@ button {
   color: white;
   font-weight: bolder;
   font-size: 30px;
+}
+
+.hidden {
+  display: none;
 }
