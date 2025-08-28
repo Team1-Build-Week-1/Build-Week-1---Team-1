@@ -144,3 +144,7 @@ button {
   font-weight: bolder;
   font-size: 30px;
 }
+.txtBtn:hover {
+  cursor: pointer;
+  background-color: #900080;
+}

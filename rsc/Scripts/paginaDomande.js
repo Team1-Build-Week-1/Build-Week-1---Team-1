@@ -237,6 +237,7 @@ nextBtn.addEventListener("click", function () {
     //reset background
     const radios = document.querySelectorAll('input[name="answer"]');
     radios.forEach((r) => (r.parentElement.style.border = ""));
+    radios.forEach((r) => (r.parentElement.style.backgroundColor = ""));
     // aggiorno contatore
     indexCurrent++;
     c++;
