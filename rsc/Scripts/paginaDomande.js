@@ -25,70 +25,6 @@ const questions = [
     correct_answer: "Dennis Ritchie",
     incorrect_answers: ["Tim Berners Lee", "al-Khwārizmī", "Willis Ware"],
   },
-  {
-    type: "multiple",
-    difficulty: "easy",
-    category: "Science: Computers",
-    question: "This mobile OS held the largest market share in 2012.",
-    correct_answer: "iOS",
-    incorrect_answers: ["Android", "BlackBerry", "Symbian"],
-  },
-  {
-    type: "boolean",
-    difficulty: "easy",
-    category: "Science: Computers",
-    question:
-      "Pointers were not used in the original C programming language; they were added later on in C++.",
-    correct_answer: "False",
-    incorrect_answers: ["True"],
-  },
-  {
-    type: "boolean",
-    difficulty: "easy",
-    category: "Science: Computers",
-    question:
-      "The NVidia GTX 1080 gets its name because it can only render at a 1920x1080 screen resolution.",
-    correct_answer: "False",
-    incorrect_answers: ["True"],
-  },
-  {
-    type: "boolean",
-    difficulty: "easy",
-    category: "Science: Computers",
-    question: "Ada Lovelace is often considered the first computer programmer.",
-    correct_answer: "True",
-    incorrect_answers: ["False"],
-  },
-  {
-    type: "multiple",
-    difficulty: "easy",
-    category: "Science: Computers",
-    question: "In computing, what does LAN stand for?",
-    correct_answer: "Local Area Network",
-    incorrect_answers: [
-      "Long Antenna Node",
-      "Light Access Node",
-      "Land Address Navigation",
-    ],
-  },
-  {
-    type: "boolean",
-    difficulty: "easy",
-    category: "Science: Computers",
-    question:
-      "The Python programming language gets its name from the British comedy group &quot;Monty Python.&quot;",
-    correct_answer: "True",
-    incorrect_answers: ["False"],
-  },
-  {
-    type: "multiple",
-    difficulty: "easy",
-    category: "Science: Computers",
-    question:
-      "Which company was established on April 1st, 1976 by Steve Jobs, Steve Wozniak and Ronald Wayne?",
-    correct_answer: "Apple",
-    incorrect_answers: ["Microsoft", "Atari", "Commodore"],
-  },
 ];
 
 /*
@@ -136,7 +72,7 @@ const timerCounter = function () {
     }
   }
 
-  setTimeout(gong, 1000);
+  setTimeout(gong, 0);
 };
 
 /*
@@ -184,7 +120,7 @@ const showQuestion = function (index) {
     }
   });
 
-  // 🔹 flag per contare solo una volta
+  // FLAG PER CONTARE SOLO UNA VOLTA
   let answered = false;
 
   const inputClick = document.querySelectorAll("input[type=radio]");
@@ -195,20 +131,24 @@ const showQuestion = function (index) {
         if (i < numAnswers) label.style.cssText = "";
       });
 
-      // evidenzio quello cliccato
+      // EVIDENZIO QUELLO CLICCATO
       const label = input.parentElement;
       label.style.cssText = `background-color: #00BFFF;`;
+
       document.getElementById("nextBtn").disabled = false;
 
-      // punteggio solo la prima volta
+      // PUNTEGGIO SOLO PER LA PRIMA VOLTA
       if (!answered) {
         const rispostaScelta = label.textContent.trim();
+        if (rispostaScelta === domande.correct_answer) {
+          label.style.cssText = `borderColor: green;`;
+        }
         if (rispostaScelta === domande.correct_answer) {
           score++;
         } else {
           wrong++;
         }
-        answered = true; // blocca incrementi multipli
+        answered = true; // BLOCCA INCREMENTI MULTIPLI
         console.log(`Correct: ${score}, Wrong: ${wrong}`);
       }
     });
@@ -230,21 +170,36 @@ showQuestion(0);
 /*
    FUNZIONE PER PASSARE ALLA DOMANDA SUCCESSIVA CON BOTTONE 'NEXT'
 */
+
 function nextQuestion() {
   const nextBtn = document.querySelector("button");
 
   nextBtn.addEventListener("click", function () {
     if (indexCurrent < questions.length - 1) {
       indexCurrent++;
+
       contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${
         questions.length
       }`;
+
       showQuestion(indexCurrent);
     } else {
       showFinalScore();
     }
   });
 }
+
+// function colorChange() {
+//   const rispostaGiusta = label.textContent.trim();
+
+//   nextBtn.addEventListener("click", function () {
+//     if (rispostaGiusta === domande.correct_answer) {
+//       label.style.cssText = `background-color: #00BFFF;`;
+//     }
+//   });
+// }
+
+// colorChange();
 
 /*
    AVVIO NEXT()
