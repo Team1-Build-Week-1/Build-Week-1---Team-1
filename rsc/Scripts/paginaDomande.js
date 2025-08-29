@@ -11,8 +11,7 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     category: "Science: Computers",
-    question:
-      "According to the International System of Units, how many bytes are in a kilobyte of RAM?",
+    question: "According to the International System of Units, how many bytes are in a kilobyte of RAM?",
     correct_answer: "1000",
     incorrect_answers: ["512", "1024", "500"],
   },
@@ -20,8 +19,7 @@ const questions = [
     type: "multiple",
     difficulty: "easy",
     category: "Science: Computers",
-    question:
-      "The C programming language was created by this American computer scientist. ",
+    question: "The C programming language was created by this American computer scientist. ",
     correct_answer: "Dennis Ritchie",
     incorrect_answers: ["Tim Berners Lee", "al-Khwārizmī", "Willis Ware"],
   },
@@ -62,9 +60,7 @@ const timerCounter = function () {
     } else {
       indexCurrent++;
       if (indexCurrent < questions.length) {
-        contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${
-          questions.length
-        }`;
+        contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${questions.length}`;
         showQuestion(indexCurrent);
       } else {
         showFinalScore();
@@ -72,7 +68,7 @@ const timerCounter = function () {
     }
   }
 
-  setTimeout(gong, 0);
+  setTimeout(gong, 1000);
 };
 
 /*
@@ -113,14 +109,14 @@ const showQuestion = function (index) {
   labels.forEach((label, i) => {
     if (i < numAnswers) {
       label.style.display = "inline-block";
-      label.innerHTML = `<input type="radio" name="answer" /> ${answers[i]}`;
+      label.innerHTML = `<input type="radio" name="answer" value= "${answers[i]}"/> ${answers[i]} `;
       label.style.cssText = "";
     } else {
       label.style.display = "none";
     }
   });
 
-  // FLAG PER CONTARE SOLO UNA VOLTA
+  // 🔹 flag per contare solo una volta
   let answered = false;
 
   const inputClick = document.querySelectorAll("input[type=radio]");
@@ -131,24 +127,20 @@ const showQuestion = function (index) {
         if (i < numAnswers) label.style.cssText = "";
       });
 
-      // EVIDENZIO QUELLO CLICCATO
+      // evidenzio quello cliccato
       const label = input.parentElement;
       label.style.cssText = `background-color: #00BFFF;`;
-
       document.getElementById("nextBtn").disabled = false;
 
-      // PUNTEGGIO SOLO PER LA PRIMA VOLTA
+      // punteggio solo la prima volta
       if (!answered) {
         const rispostaScelta = label.textContent.trim();
-        if (rispostaScelta === domande.correct_answer) {
-          label.style.cssText = `borderColor: green;`;
-        }
         if (rispostaScelta === domande.correct_answer) {
           score++;
         } else {
           wrong++;
         }
-        answered = true; // BLOCCA INCREMENTI MULTIPLI
+        answered = true; // blocca incrementi multipli
         console.log(`Correct: ${score}, Wrong: ${wrong}`);
       }
     });
@@ -170,36 +162,40 @@ showQuestion(0);
 /*
    FUNZIONE PER PASSARE ALLA DOMANDA SUCCESSIVA CON BOTTONE 'NEXT'
 */
-
 function nextQuestion() {
   const nextBtn = document.querySelector("button");
 
   nextBtn.addEventListener("click", function () {
-    if (indexCurrent < questions.length - 1) {
-      indexCurrent++;
+    nextBtn.disabled = true;
 
-      contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${
-        questions.length
-      }`;
+    const radios = document.querySelectorAll('input[name="answer"]');
+    radios.forEach((r) => {
+      if (r.value === questions[indexCurrent].correct_answer) {
+        r.parentElement.style.border = "solid 2px green";
+      } else {
+        r.parentElement.style.border = "solid 2px red";
+      }
+    });
 
-      showQuestion(indexCurrent);
-    } else {
-      showFinalScore();
-    }
+    setTimeout(() => {
+      // reset selezione
+
+      //reset background
+      const radios = document.querySelectorAll('input[name="answer"]');
+      radios.forEach((r) => (r.parentElement.style.border = ""));
+      radios.forEach((r) => (r.parentElement.style.backgroundColor = ""));
+
+      if (indexCurrent < questions.length - 1) {
+        indexCurrent++;
+        contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${questions.length}`;
+        showQuestion(indexCurrent);
+      } else {
+        showFinalScore();
+      }
+      nextBtn.disabled = false;
+    }, 2000);
   });
 }
-
-// function colorChange() {
-//   const rispostaGiusta = label.textContent.trim();
-
-//   nextBtn.addEventListener("click", function () {
-//     if (rispostaGiusta === domande.correct_answer) {
-//       label.style.cssText = `background-color: #00BFFF;`;
-//     }
-//   });
-// }
-
-// colorChange();
 
 /*
    AVVIO NEXT()

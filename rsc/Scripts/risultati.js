@@ -40,17 +40,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (results) {
     // aggiorno il DOM
-    document.querySelector(".div1 .wrong1").textContent =
-      results.percentCorrect + "%";
-    document.querySelector(
-      ".div1 .wrong2"
-    ).textContent = `${results.correct}/${results.total} questions`;
+    document.querySelector(".div1 .wrong1").textContent = results.percentCorrect + "%";
+    document.querySelector(".div1 .wrong2").textContent = `${results.correct}/${results.total} questions`;
 
-    document.querySelector(".div3 .wrong1").textContent =
-      results.percentWrong + "%";
-    document.querySelector(
-      ".div3 .wrong2"
-    ).textContent = `${results.wrong}/${results.total} questions`;
+    document.querySelector(".div3 .wrong1").textContent = results.percentWrong + "%";
+    document.querySelector(".div3 .wrong2").textContent = `${results.wrong}/${results.total} questions`;
 
     // messaggio centrale
     const message = document.querySelector(".div2 .p1");
