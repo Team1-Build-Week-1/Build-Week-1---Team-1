@@ -1,87 +1,93 @@
-const questionsEasy = [
+const questionHard = [
+  {
+    type: "multiple",
+    difficulty: "hard",
+    category: "Science: Computers",
+    question:
+      "America Online (AOL) started out as which of these online service providers?",
+    correct_answer: "Quantum Link",
+    incorrect_answers: ["CompuServe", "Prodigy", "GEnie"],
+  },
+  {
+    type: "multiple",
+    difficulty: "hard",
+    category: "Science: Computers",
+    question:
+      "Which of the following computer components can be built using only NAND gates?",
+    correct_answer: "ALU",
+    incorrect_answers: ["CPU", "RAM", "Register"],
+  },
   {
     type: "boolean",
-    difficulty: "medium",
+    difficulty: "hard",
     category: "Science: Computers",
-    question: "The HTML5 standard was published in 2014.",
-    correct_answer: "True",
-    incorrect_answers: ["False"],
+    question: "DHCP stands for Dynamic Host Configuration Port.",
+    correct_answer: "False",
+    incorrect_answers: ["True"],
   },
   {
     type: "multiple",
-    difficulty: "medium",
-    category: "Science: Computers",
-    question: "What five letter word is the motto of the IBM Computer company?",
-    correct_answer: "Think",
-    incorrect_answers: ["Click", "Logic", "Pixel"],
-  },
-  {
-    type: "multiple",
-    difficulty: "medium",
+    difficulty: "hard",
     category: "Science: Computers",
     question:
-      "In programming, the ternary operator is mostly defined with what symbol(s)?",
-    correct_answer: "?:",
-    incorrect_answers: ["??", "if then", "?"],
+      "What was the name of the security vulnerability found in Bash in 2014?",
+    correct_answer: "Shellshock",
+    incorrect_answers: ["Heartbleed", "Bashbug", "Stagefright"],
   },
   {
     type: "multiple",
-    difficulty: "medium",
+    difficulty: "hard",
     category: "Science: Computers",
-    question: "Which of these people was NOT a founder of Apple Inc?",
-    correct_answer: "Jonathan Ive",
-    incorrect_answers: ["Steve Jobs", "Ronald Wayne", "Steve Wozniak"],
+    question: "What port does HTTP run on?",
+    correct_answer: "80",
+    incorrect_answers: ["53", "443", "23"],
   },
   {
     type: "multiple",
-    difficulty: "medium",
-    category: "Science: Computers",
-    question: "What is known as &quot;the brain&quot; of the Computer?",
-    correct_answer: "Central Processing Unit",
-    incorrect_answers: ["Motherboard", "Graphics Processing Unit", "Keyboard"],
-  },
-  {
-    type: "multiple",
-    difficulty: "medium",
+    difficulty: "hard",
     category: "Science: Computers",
     question:
-      "What was the first Android version specifically optimized for tablets?",
-    correct_answer: "Honeycomb",
-    incorrect_answers: ["Eclair", "Froyo", "Marshmellow"],
+      "Lenovo acquired IBM&#039;s personal computer division, including the ThinkPad line of laptops and tablets, in what year?",
+    correct_answer: "2005",
+    incorrect_answers: ["1999", "2002", "2008"],
   },
   {
     type: "multiple",
-    difficulty: "medium",
+    difficulty: "hard",
     category: "Science: Computers",
     question:
-      "In CSS, which of these values CANNOT be used with the &quot;position&quot; property?",
-    correct_answer: "center",
-    incorrect_answers: ["static", "absolute", "relative"],
+      "Which of these names was an actual codename for a cancelled Microsoft project?",
+    correct_answer: "Neptune",
+    incorrect_answers: ["Enceladus", "Pollux", "Saturn"],
   },
   {
     type: "multiple",
-    difficulty: "medium",
+    difficulty: "hard",
     category: "Science: Computers",
     question:
-      "Which coding language was the #1 programming language in terms of usage on GitHub in 2015?",
-    correct_answer: "JavaScript",
-    incorrect_answers: ["C#", "Python", "PHP"],
+      "Which of these was the name of a bug found in April 2014 in the publicly available OpenSSL cryptography library?",
+    correct_answer: "Heartbleed",
+    incorrect_answers: ["Shellshock", "Corrupted Blood", "Shellscript"],
   },
   {
     type: "multiple",
-    difficulty: "medium",
+    difficulty: "hard",
     category: "Science: Computers",
-    question: "Approximately how many Apple I personal computers were created?",
-    correct_answer: "200",
-    incorrect_answers: ["100", "500", "1000"],
+    question: "How many Hz does the video standard PAL support?",
+    correct_answer: "50",
+    incorrect_answers: ["59", "60", "25"],
   },
   {
     type: "multiple",
-    difficulty: "medium",
+    difficulty: "hard",
     category: "Science: Computers",
-    question: "Which operating system was released first?",
-    correct_answer: "Mac OS",
-    incorrect_answers: ["Windows", "Linux", "OS/2"],
+    question: "The acronym &quot;RIP&quot; stands for which of these?",
+    correct_answer: "Routing Information Protocol",
+    incorrect_answers: [
+      "Runtime Instance Processes",
+      "Regular Interval Processes",
+      "Routine Inspection Protocol",
+    ],
   },
 ];
 
@@ -119,7 +125,7 @@ const timerCounter = function () {
       timerInterval = setTimeout(gong, 1000);
     } else {
       indexCurrent++;
-      if (indexCurrent < questionsEasy.length) {
+      if (indexCurrent < questionHard.length) {
         contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${
           questions.length
         }`;
@@ -138,11 +144,11 @@ const timerCounter = function () {
 */
 
 const shuffleQuestions = function () {
-  for (let i = questionsEasy.length - 1; i > 0; i--) {
+  for (let i = questionHard.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
-    let k = questionsEasy[i];
-    questionsEasy[i] = questionsEasy[j];
-    questionsEasy[j] = k;
+    let k = questionHard[i];
+    questionHard[i] = questionHard[j];
+    questionHard[j] = k;
   }
 };
 
@@ -151,7 +157,7 @@ const shuffleQuestions = function () {
 */
 
 const showQuestion = function (index) {
-  const domande = questionsEasy[index];
+  const domande = questionHard[index];
   document.getElementById("domanda").innerHTML = domande.question;
 
   let answers = [];
@@ -232,7 +238,7 @@ function nextQuestion() {
 
     const radios = document.querySelectorAll('input[name="answer"]');
     radios.forEach((r) => {
-      if (r.value === questionsEasy[indexCurrent].correct_answer) {
+      if (r.value === questionHard[indexCurrent].correct_answer) {
         r.parentElement.style.border = "solid 2px green";
       } else {
         r.parentElement.style.border = "solid 2px red";
@@ -247,10 +253,10 @@ function nextQuestion() {
       radios.forEach((r) => (r.parentElement.style.border = ""));
       radios.forEach((r) => (r.parentElement.style.backgroundColor = ""));
 
-      if (indexCurrent < questionsEasy.length - 1) {
+      if (indexCurrent < questionHard.length - 1) {
         indexCurrent++;
         contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${
-          questionsEasy.length
+          questionHard.length
         }`;
         showQuestion(indexCurrent);
       } else {
@@ -274,7 +280,7 @@ nextQuestion();
 */
 
 function showFinalScore() {
-  const total = questionsEasy.length;
+  const total = questionHard.length;
   const correct = score;
   const percentCorrect = ((correct / total) * 100).toFixed(1);
   const percentWrong = ((wrong / total) * 100).toFixed(1);

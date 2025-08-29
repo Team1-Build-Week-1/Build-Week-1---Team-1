@@ -1,0 +1,76 @@
+* body {
+  background-image: url(../../assets/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: 70px 120px;
+  font-size: 16px;
+  font-weight: 200;
+  height: 804px;
+}
+
+.logo img {
+  width: 200px;
+  margin-bottom: 25px;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 60px;
+  font-weight: normal;
+  font-family: "Outfit", sans-serif;
+  line-height: 50px;
+}
+
+h1 span {
+  font-weight: bold;
+}
+
+h2 {
+  color: #900080;
+  font-family: "Outfit", sans-serif;
+  font-size: 30px;
+  margin-bottom: 0;
+}
+
+.instructions {
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  padding-bottom: 35px;
+  margin-top: 0;
+}
+
+ul > li {
+  display: inline-block;
+}
+
+button {
+  background-color: black;
+  color: red;
+  border: none;
+  padding: 15px 30px;
+  font-size: 1rem;
+  box-shadow: 0 0 15px red;
+  font-weight: bold;
+  margin-right: 25px;
+}
+
+.buttonClicked {
+  background-color: #00ffff;
+  color: floralwhite;
+  font-weight: bolder;
+  border: none;
+  padding: 15px 30px;
+  box-shadow: 0 0 15px white;
+  font-weight: bold;
+}
+
+.salute {
+  color: #ffffff;
+  font-size: 60px;
+  font-weight: normal;
+  font-family: "Outfit", sans-serif;
+  line-height: 50px;
+  text-align: center;
+  padding: 30px;
+}

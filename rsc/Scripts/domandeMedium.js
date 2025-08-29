@@ -1,87 +1,93 @@
-const questionsEasy = [
+const questionMedium = [
+  {
+    type: "multiple",
+    difficulty: "easy",
+    category: "Science: Computers",
+    question: "HTML is what type of language?",
+    correct_answer: "Markup Language",
+    incorrect_answers: [
+      "Macro Language",
+      "Programming Language",
+      "Scripting Language",
+    ],
+  },
+  {
+    type: "multiple",
+    difficulty: "easy",
+    category: "Science: Computers",
+    question:
+      "Which company was established on April 1st, 1976 by Steve Jobs, Steve Wozniak and Ronald Wayne?",
+    correct_answer: "Apple",
+    incorrect_answers: ["Microsoft", "Atari", "Commodore"],
+  },
+  {
+    type: "multiple",
+    difficulty: "easy",
+    category: "Science: Computers",
+    question:
+      "When Gmail first launched, how much storage did it provide for your email?",
+    correct_answer: "1GB",
+    incorrect_answers: ["512MB", "5GB", "Unlimited"],
+  },
+  {
+    type: "multiple",
+    difficulty: "easy",
+    category: "Science: Computers",
+    question: "What language does Node.js use?",
+    correct_answer: "JavaScript",
+    incorrect_answers: ["Java", "Java Source", "Joomla Source Code"],
+  },
+  {
+    type: "multiple",
+    difficulty: "easy",
+    category: "Science: Computers",
+    question:
+      "In &quot;Hexadecimal&quot;, what color would be displayed from the color code? &quot;#00FF00&quot;?",
+    correct_answer: "Green",
+    incorrect_answers: ["Red", "Blue", "Yellow"],
+  },
   {
     type: "boolean",
-    difficulty: "medium",
-    category: "Science: Computers",
-    question: "The HTML5 standard was published in 2014.",
-    correct_answer: "True",
-    incorrect_answers: ["False"],
-  },
-  {
-    type: "multiple",
-    difficulty: "medium",
-    category: "Science: Computers",
-    question: "What five letter word is the motto of the IBM Computer company?",
-    correct_answer: "Think",
-    incorrect_answers: ["Click", "Logic", "Pixel"],
-  },
-  {
-    type: "multiple",
-    difficulty: "medium",
+    difficulty: "easy",
     category: "Science: Computers",
     question:
-      "In programming, the ternary operator is mostly defined with what symbol(s)?",
-    correct_answer: "?:",
-    incorrect_answers: ["??", "if then", "?"],
+      "The NVidia GTX 1080 gets its name because it can only render at a 1920x1080 screen resolution.",
+    correct_answer: "False",
+    incorrect_answers: ["True"],
   },
   {
     type: "multiple",
-    difficulty: "medium",
-    category: "Science: Computers",
-    question: "Which of these people was NOT a founder of Apple Inc?",
-    correct_answer: "Jonathan Ive",
-    incorrect_answers: ["Steve Jobs", "Ronald Wayne", "Steve Wozniak"],
-  },
-  {
-    type: "multiple",
-    difficulty: "medium",
-    category: "Science: Computers",
-    question: "What is known as &quot;the brain&quot; of the Computer?",
-    correct_answer: "Central Processing Unit",
-    incorrect_answers: ["Motherboard", "Graphics Processing Unit", "Keyboard"],
-  },
-  {
-    type: "multiple",
-    difficulty: "medium",
+    difficulty: "easy",
     category: "Science: Computers",
     question:
-      "What was the first Android version specifically optimized for tablets?",
-    correct_answer: "Honeycomb",
-    incorrect_answers: ["Eclair", "Froyo", "Marshmellow"],
+      "According to the International System of Units, how many bytes are in a kilobyte of RAM?",
+    correct_answer: "1000",
+    incorrect_answers: ["512", "1024", "500"],
   },
   {
     type: "multiple",
-    difficulty: "medium",
+    difficulty: "easy",
     category: "Science: Computers",
     question:
-      "In CSS, which of these values CANNOT be used with the &quot;position&quot; property?",
-    correct_answer: "center",
-    incorrect_answers: ["static", "absolute", "relative"],
+      "In the programming language Java, which of these keywords would you put on a variable to make sure it doesn&#039;t get modified?",
+    correct_answer: "Final",
+    incorrect_answers: ["Static", "Private", "Public"],
   },
   {
     type: "multiple",
-    difficulty: "medium",
+    difficulty: "easy",
     category: "Science: Computers",
-    question:
-      "Which coding language was the #1 programming language in terms of usage on GitHub in 2015?",
-    correct_answer: "JavaScript",
-    incorrect_answers: ["C#", "Python", "PHP"],
+    question: "What is the domain name for the country Tuvalu?",
+    correct_answer: ".tv",
+    incorrect_answers: [".tu", ".tt", ".tl"],
   },
   {
     type: "multiple",
-    difficulty: "medium",
+    difficulty: "easy",
     category: "Science: Computers",
-    question: "Approximately how many Apple I personal computers were created?",
-    correct_answer: "200",
-    incorrect_answers: ["100", "500", "1000"],
-  },
-  {
-    type: "multiple",
-    difficulty: "medium",
-    category: "Science: Computers",
-    question: "Which operating system was released first?",
-    correct_answer: "Mac OS",
-    incorrect_answers: ["Windows", "Linux", "OS/2"],
+    question: "How many values can a single byte represent?",
+    correct_answer: "256",
+    incorrect_answers: ["8", "1", "1024"],
   },
 ];
 
@@ -119,7 +125,7 @@ const timerCounter = function () {
       timerInterval = setTimeout(gong, 1000);
     } else {
       indexCurrent++;
-      if (indexCurrent < questionsEasy.length) {
+      if (indexCurrent < questionMedium.length) {
         contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${
           questions.length
         }`;
@@ -138,11 +144,11 @@ const timerCounter = function () {
 */
 
 const shuffleQuestions = function () {
-  for (let i = questionsEasy.length - 1; i > 0; i--) {
+  for (let i = questionMedium.length - 1; i > 0; i--) {
     let j = Math.floor(Math.random() * (i + 1));
-    let k = questionsEasy[i];
-    questionsEasy[i] = questionsEasy[j];
-    questionsEasy[j] = k;
+    let k = questionMedium[i];
+    questionMedium[i] = questionMedium[j];
+    questionMedium[j] = k;
   }
 };
 
@@ -151,7 +157,7 @@ const shuffleQuestions = function () {
 */
 
 const showQuestion = function (index) {
-  const domande = questionsEasy[index];
+  const domande = questionMedium[index];
   document.getElementById("domanda").innerHTML = domande.question;
 
   let answers = [];
@@ -232,7 +238,7 @@ function nextQuestion() {
 
     const radios = document.querySelectorAll('input[name="answer"]');
     radios.forEach((r) => {
-      if (r.value === questionsEasy[indexCurrent].correct_answer) {
+      if (r.value === questionMedium[indexCurrent].correct_answer) {
         r.parentElement.style.border = "solid 2px green";
       } else {
         r.parentElement.style.border = "solid 2px red";
@@ -247,10 +253,10 @@ function nextQuestion() {
       radios.forEach((r) => (r.parentElement.style.border = ""));
       radios.forEach((r) => (r.parentElement.style.backgroundColor = ""));
 
-      if (indexCurrent < questionsEasy.length - 1) {
+      if (indexCurrent < questionMedium.length - 1) {
         indexCurrent++;
         contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${
-          questionsEasy.length
+          questionMedium.length
         }`;
         showQuestion(indexCurrent);
       } else {
@@ -274,7 +280,7 @@ nextQuestion();
 */
 
 function showFinalScore() {
-  const total = questionsEasy.length;
+  const total = questionMedium.length;
   const correct = score;
   const percentCorrect = ((correct / total) * 100).toFixed(1);
   const percentWrong = ((wrong / total) * 100).toFixed(1);

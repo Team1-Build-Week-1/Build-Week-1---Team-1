@@ -15,13 +15,13 @@
       href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
       rel="stylesheet"
     />
+    <title>Difficulty Selection - Page</title>
     <link
       rel="icon"
       href="./assets/Screenshot_2025-08-29_154602-removebg-preview.png"
       sizes="300x300"
     />
-    <title>Home - Page</title>
-    <link rel="stylesheet" href="./rsc/CSS/welcome.css" />
+    <link rel="stylesheet" href="./rsc/CSS/difficulty.css" />
   </head>
 
   <body>
@@ -29,35 +29,21 @@
       <img src="./assets/epicode_logo.png" alt="epicode_logo" />
     </div>
     <div>
-      <h1>Welcome to <br /><span>your exam</span></h1>
+      <h1>Select <br /><span>your questions level. </span></h1>
     </div>
     <div>
       <h2>Instructions</h2>
       <p class="instructions">
-        We don't expect most engineers to know the answer to all of these<br />questions,
-        so don't worry if you're unsure of a few of them.
+        Choose betwewen these 3 levels of difficulty and start your exam!
       </p>
     </div>
     <div>
       <ul>
-        <li>
-          Each question is <strong>timed</strong> and can only be
-          <strong>answered once</strong>.
-        </li>
-        <li>
-          Changing browser tab or opening other windows will
-          <strong>invalidate the question</strong>.
-        </li>
-        <li>This exam will take approx. <strong>0-5 minutes</strong>.</li>
+        <li><button id="easy">Easy</button></li>
+        <li><button id="medium">Medium</button></li>
+        <li><button id="hard">Hard</button></li>
       </ul>
     </div>
-    <div class="action">
-      <div>
-        <input type="checkbox" id="promise-checkbox" />
-        <p class="input">I promise to answer myself without help from anyone</p>
-      </div>
-      <button class="buttonUnchecked" id="proceedBtn">PROCEED</button>
-    </div>
   </body>
-  <script src="./rsc/Scripts/welcome.js"></script>
+  <script src="./rsc/Scripts/difficulty.js"></script>
 </html>

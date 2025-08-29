@@ -5,7 +5,7 @@ btn.addEventListener("click", () => {
   if (!checkbox.checked) {
     alert("You must first select the checkbox!");
   } else {
-    window.location.href = "./paginaDomande.html";
+    window.location.href = "difficulty.html";
     checkbox.checked = false;
   }
 });
