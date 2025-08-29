@@ -127,7 +127,7 @@ const timerCounter = function () {
       indexCurrent++;
       if (indexCurrent < questionMedium.length) {
         contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${
-          questions.length
+          questionMedium.length
         }`;
         showQuestion(indexCurrent);
       } else {

@@ -114,7 +114,7 @@ const contatore = document.querySelector("h4");
 */
 
 const timerCounter = function () {
-  let passing = 60;
+  let passing = 2;
   timer.innerHTML = passing;
 
   function gong() {
@@ -127,7 +127,7 @@ const timerCounter = function () {
       indexCurrent++;
       if (indexCurrent < questionHard.length) {
         contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${
-          questions.length
+          questionHard.length
         }`;
         showQuestion(indexCurrent);
       } else {
@@ -208,7 +208,7 @@ const showQuestion = function (index) {
         } else {
           wrong++;
         }
-        answered = true; // blocca incrementi multipli
+        answered = true;
         console.log(`Correct: ${score}, Wrong: ${wrong}`);
       }
     });
