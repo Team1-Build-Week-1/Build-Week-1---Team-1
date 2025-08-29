@@ -1,74 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="stylesheet" href="./rsc/CSS/style.css" />
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
-    </style>
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
-    </style>
-    <title>benchmark page</title>
-  </head>
-  <body>
-    <!-- contenitore centrato -->
-    <div id="Container">
-      <!-- header con logo e timer per domanda -->
-      <header>
-        <div id="Logo">
-          <img src="./assets/epicode_logo.png" alt="epicode logo" />
-        </div>
-      </header>
-      <!-- main con domanda e risposte -->
-      <main>
-        <div id="Timer">
-          <p>
-            SECONDS
-            <br />
-            <span style="font-size: 3em" id="seconds">15</span>
-            <br />
-            REMAIN
-          </p>
-        </div>
-        <div>
-          <h1 id="domanda">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga, rem!
-            Rem praesentium nam molestias, ipsa eveniet nostrum voluptates
-            numquam nesciunt sit ut expedita corporis vel doloribus dolor
-            suscipit fugit soluta. ?
-          </h1>
-        </div>
-        <div id="contenitoreRisposte">
-          <form>
-            <div>
-              <label class="risposta" id="risposta1">
-                <input type="radio" name="answer" id="input" />
-              </label>
-              <label class="risposta" id="risposta2">
-                <input type="radio" name="answer" id="input" />
-              </label>
-              <label class="risposta" id="risposta3">
-                <input type="radio" name="answer" id="input" />
-              </label>
-              <label class="risposta" id="risposta4">
-                <input type="radio" name="answer" id="input" />
-              </label>
-            </div>
-          </form>
-        </div>
-      </main>
-      <!-- footer con numero domanda corrente  -->
-      <footer>
-        <h4>QUESTION 1/ 10</h4>
-        <div id="buttonCont">
-          <button type="submit">NEXT></button>
-        </div>
-      </footer>
-    </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <script src="./rsc/Scripts/paginaDomande.js"></script>
-  </body>
+  <link rel="stylesheet" href="./rsc/CSS/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&display=swap"
+    rel="stylesheet" <title>benchmark page</title>
+</head>
+
+<body>
+  <!-- contenitore centrato -->
+  <div id="Container">
+    <!-- header con logo e timer per domanda -->
+    <header>
+      <div id="Logo">
+        <img src="./assets/epicode_logo.png" alt="epicode logo" />
+      </div>
+    </header>
+    <!-- main con domanda e risposte -->
+    <main>
+      <div id="Timer">
+        <p>
+          SECONDS
+          <br />
+          <span style="font-size: 3em" id="seconds">15</span>
+          <br />
+          REMAIN
+        </p>
+      </div>
+      <div>
+        <h1 id="domanda">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga, rem!
+          Rem praesentium nam molestias, ipsa eveniet nostrum voluptates
+          numquam nesciunt sit ut expedita corporis vel doloribus dolor
+          suscipit fugit soluta. ?
+        </h1>
+      </div>
+      <div id="contenitoreRisposte">
+        <form>
+          <div>
+            <label class="risposta" id="risposta1">
+              <input type="radio" name="answer" id="input" />
+            </label>
+            <label class="risposta" id="risposta2">
+              <input type="radio" name="answer" id="input" />
+            </label>
+            <label class="risposta" id="risposta3">
+              <input type="radio" name="answer" id="input" />
+            </label>
+            <label class="risposta" id="risposta4">
+              <input type="radio" name="answer" id="input" />
+            </label>
+          </div>
+        </form>
+      </div>
+    </main>
+    <!-- footer con numero domanda corrente  -->
+    <footer>
+      <h4>QUESTION 1/ 10</h4>
+      <div id="buttonCont">
+        <button type="submit">NEXT></button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="./rsc/Scripts/paginaDomande.js"></script>
+</body>
+
 </html>

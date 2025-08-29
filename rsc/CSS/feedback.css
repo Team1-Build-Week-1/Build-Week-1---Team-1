@@ -12,6 +12,7 @@ body {
   font-weight: 200;
   height: 804px;
   text-align: center;
+  font-family: "Outfit", sans-serif;
 }
 
 .logo img {
@@ -24,8 +25,8 @@ h1 {
   color: #ffffff;
   font-size: 60px;
   font-weight: bold;
-  font-family: "Outfit", sans-serif;
   line-height: 50px;
+  font-family: "Inter", sans-serif;
 }
 
 h1 span {
@@ -34,9 +35,9 @@ h1 span {
 
 h2 {
   color: #900080;
-  font-family: "Outfit", sans-serif;
   font-size: 30px;
   margin-bottom: 0;
+  font-family: "Inter", sans-serif;
 }
 
 .instructions {
@@ -46,6 +47,7 @@ h2 {
   margin-top: 0;
   font-weight: 300;
   font-size: 25px;
+  font-family: "Outfit", sans-serif;
 }
 
 /* STELLINE */
@@ -65,6 +67,7 @@ h2 {
   font-family: "Inter", sans-serif;
   font-weight: 300;
   font-size: 22px;
+  font-family: "Outfit", sans-serif;
 }
 
 /* INPUT */
@@ -89,6 +92,7 @@ input {
   border-bottom: 4px solid #900080;
   background-color: transparent;
   padding-left: 25px;
+  font-family: "Outfit", sans-serif;
 }
 
 /* BOTTONE INFO */
@@ -100,6 +104,7 @@ button {
   font-size: 1.2rem;
   box-shadow: 0 0 15px #00ffff;
   font-weight: bold;
+  font-family: "Outfit", sans-serif;
 }
 
 .moreInfo {

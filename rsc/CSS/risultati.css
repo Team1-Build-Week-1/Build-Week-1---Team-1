@@ -11,6 +11,7 @@ body {
   margin: 0;
   height: 100vh;
   width: 100vw;
+  font-family: "Outfit", sans-serif;
 }
 
 .logo {
@@ -42,6 +43,11 @@ main {
   text-align: center;
 }
 
+.section1Container {
+  line-height: 5px;
+  margin-bottom: 60px
+}
+
 .div1,
 .div2,
 .div3 {
@@ -53,34 +59,43 @@ main {
 .div1 {
   width: 23%;
   height: 300px;
+  line-height: 5px;
 }
+
 .div1 h2 {
   color: white;
   font-weight: 400;
   font-size: 50px;
+  font-family: "Inter", sans-serif;
 }
 
 .div3 {
   width: 23%;
   height: 300px;
+  line-height: 5px;
 }
 
 .div3 h2 {
   color: white;
   font-weight: 400;
   font-size: 50px;
+  font-family: "Inter", sans-serif;
 }
 
 .wrong1 {
   color: white;
   font-weight: 600;
   font-size: 35px;
+  font-family: "Outfit", sans-serif;
+
+
 }
 
 .wrong2 {
   color: white;
   font-size: 22px;
   font-weight: lighter;
+  font-family: "Outfit", sans-serif;
 }
 
 /* CERCHIO ESTERNO */
@@ -96,7 +111,9 @@ main {
 
 .inner-circle {
   border-radius: 50%;
-  background-color: #0d0d2b;
+  background-image: url(../../assets/bg.jpg);
+  background-position: center;
+  background-size: cover;
   width: 350px;
   height: 350px;
   margin: auto;
@@ -143,4 +160,5 @@ button {
   color: white;
   font-weight: bolder;
   font-size: 30px;
+  font-family: "Outfit", sans-serif;
 }
