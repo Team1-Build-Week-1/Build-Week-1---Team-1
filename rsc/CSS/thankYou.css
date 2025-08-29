@@ -98,15 +98,12 @@ input {
 /* BOTTONE INFO */
 
 button {
-  /* background-color: #00ffff; */
-
   background-color: grey;
   border: none;
   padding: 15px 30px;
   font-size: 1.2rem;
-  /* box-shadow: 0 0 15px #00ffff; */
   box-shadow: 0 0 15px grey;
-  color: rgba(54, 54, 54, 0.692);
+  color: white;
   font-weight: bold;
   cursor: pointer;
 }
@@ -114,7 +111,7 @@ button {
 /* classe bottone attivo per javascript */
 .buttonActive {
   background-color: #00ffff;
-
+  color: white;
   border: none;
   padding: 15px 30px;
   font-size: 1.2rem;

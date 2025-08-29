@@ -1,0 +1,152 @@
+body {
+  /* allineo  */
+  text-align: justify;
+  /* colore testo per la pagina */
+  color: rgba(255, 255, 255, 0.692);
+  /* immagine di sfondo */
+  background-image: url(../../assets/bg.jpg);
+  /* aggiusto la size */
+  background-size: cover;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: lighter;
+  font-style: normal;
+  letter-spacing: 2px;
+  background-repeat: none;
+}
+
+#Container {
+  /* rendo il container centrale verticalmente e orizzontalmente */
+  padding-inline: 5%;
+}
+
+.block {
+  display: block;
+}
+
+img {
+  /* regolo la grandezza dell`immagine */
+  height: 4em;
+}
+main {
+  /* aggoingo il margine per separare il main  da footer e header */
+  margin-block: 2em;
+}
+#Timer {
+  text-align: center;
+  margin-left: auto;
+  width: 130px;
+
+  height: 130px;
+  margin-bottom: 20px;
+  border: solid #900080 20px;
+
+  /* lo spinge a destra */
+
+  border-radius: 50%;
+
+  /* ombreggiatura interna e esterna */
+
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5), inset 5px 5px 15px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  position: relative;
+  bottom: 80px;
+}
+
+h1 {
+  margin-block: 1.5em;
+}
+
+.risposta input {
+  display: none;
+}
+
+#contenitoreRisposte {
+  text-align: center;
+}
+
+.risposta {
+  display: inline-block;
+  width: 47%;
+  /* ricreo sfondo e bordo sfumato delle caselle */
+  background-color: rgba(255, 255, 255, 0.089);
+  border: solid 2px;
+  border-top-color: rgba(240, 248, 255, 0.363);
+  border-left: solid rgba(240, 248, 255, 0.363) 2px;
+  border-right: solid rgba(240, 248, 255, 0.363) 2px;
+  border-bottom: 0px;
+  border-radius: 35px;
+  text-align: center;
+  padding-block: 20px;
+  margin: 20px;
+  font-weight: bolder;
+}
+
+/* cursore su casella risposta */
+.risposta:hover {
+  cursor: pointer;
+  background-color: purple;
+}
+
+footer {
+  margin-top: 6em;
+}
+
+/* style del bottone next */
+button {
+  display: inline-block;
+  background: none;
+  border: solid rgba(240, 248, 255, 0.363) 2px;
+  height: 60px;
+  width: 250px;
+  cursor: pointer;
+  color: rgba(240, 248, 255, 0.363);
+  text-align: center;
+  padding: 10px;
+  font-weight: bolder;
+}
+
+/* bottone varia quando cursore sopra */
+button:hover {
+  background: #900080;
+  color: white;
+}
+
+/* creato div per spostare bottone a destra */
+#buttonCont {
+  height: 60px;
+  width: 250px;
+  margin-left: auto;
+  font-weight: bolder;
+}
+
+.risposta input {
+  display: none;
+}
+
+#contenitoreRisposte {
+  text-align: center;
+}
+
+.risposta {
+  display: inline-block;
+  width: 47%;
+  /* ricreo sfondo e bordo sfumato delle caselle */
+  background-color: rgba(255, 255, 255, 0.089);
+  border: solid 2px;
+  border-top-color: rgba(240, 248, 255, 0.363);
+  border-left: solid rgba(240, 248, 255, 0.363) 2px;
+  border-right: solid rgba(240, 248, 255, 0.363) 2px;
+  border-bottom: 0px;
+  border-radius: 35px;
+  text-align: center;
+  padding-block: 20px;
+  margin: 20px;
+  font-weight: bolder;
+}
+
+/* cursore su casella risposta */
+.risposta:hover {
+  cursor: pointer;
+  background-color: purple;
+}
