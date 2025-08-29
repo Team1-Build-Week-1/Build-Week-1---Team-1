@@ -177,7 +177,7 @@ const showQuestion = function (index) {
   labels.forEach((label, i) => {
     if (i < numAnswers) {
       label.style.display = "inline-block";
-      label.innerHTML = `<input type="radio" name="answer" /> ${answers[i]}`;
+      label.innerHTML = `<input type="radio" name="answer" value= "${answers[i]}"/> ${answers[i]} `;
       label.style.cssText = "";
     } else {
       label.style.display = "none";
@@ -197,7 +197,7 @@ const showQuestion = function (index) {
 
       // evidenzio quello cliccato
       const label = input.parentElement;
-      label.style.cssText = `background-color: #00BFFF;`;
+      label.style.cssText = `background-color: #6d0957ff;`;
       document.getElementById("nextBtn").disabled = false;
 
       // punteggio solo la prima volta
@@ -234,15 +234,36 @@ function nextQuestion() {
   const nextBtn = document.querySelector("button");
 
   nextBtn.addEventListener("click", function () {
-    if (indexCurrent < questions.length - 1) {
-      indexCurrent++;
-      contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${
-        questions.length
-      }`;
-      showQuestion(indexCurrent);
-    } else {
-      showFinalScore();
-    }
+    nextBtn.disabled = true;
+
+    const radios = document.querySelectorAll('input[name="answer"]');
+    radios.forEach((r) => {
+      if (r.value === questions[indexCurrent].correct_answer) {
+        r.parentElement.style.border = "solid 2px green";
+      } else {
+        r.parentElement.style.border = "solid 2px red";
+      }
+    });
+
+    setTimeout(() => {
+      // reset selezione
+
+      //reset background
+      const radios = document.querySelectorAll('input[name="answer"]');
+      radios.forEach((r) => (r.parentElement.style.border = ""));
+      radios.forEach((r) => (r.parentElement.style.backgroundColor = ""));
+
+      if (indexCurrent < questions.length - 1) {
+        indexCurrent++;
+        contatore.innerHTML = `QUESTION ${indexCurrent + 1} / ${
+          questions.length
+        }`;
+        showQuestion(indexCurrent);
+      } else {
+        showFinalScore();
+      }
+      nextBtn.disabled = false;
+    }, 800);
   });
 }
 
