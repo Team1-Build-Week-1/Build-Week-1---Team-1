@@ -89,7 +89,7 @@ main {
   border-radius: 50%;
   width: 450px;
   height: 450px;
-  background: conic-gradient(magenta 0% 33%, cyan 0% 100%);
+  /* background: conic-gradient(magenta 0% 33%, cyan 0% 100%); */
 }
 
 /* CERCHIO INTERNO */
