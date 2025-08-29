@@ -11,6 +11,7 @@ body {
   margin: 0;
   height: 100vh;
   width: 100vw;
+  font-family: "Outfit", sans-serif;
 }
 
 .logo {
@@ -42,6 +43,11 @@ main {
   text-align: center;
 }
 
+.section1Container {
+  line-height: 5px;
+  margin-bottom: 60px;
+}
+
 .div1,
 .div2,
 .div3 {
@@ -53,34 +59,41 @@ main {
 .div1 {
   width: 23%;
   height: 300px;
+  line-height: 5px;
 }
+
 .div1 h2 {
   color: white;
   font-weight: 400;
   font-size: 50px;
+  font-family: "Inter", sans-serif;
 }
 
 .div3 {
   width: 23%;
   height: 300px;
+  line-height: 5px;
 }
 
 .div3 h2 {
   color: white;
   font-weight: 400;
   font-size: 50px;
+  font-family: "Inter", sans-serif;
 }
 
 .wrong1 {
   color: white;
   font-weight: 600;
   font-size: 35px;
+  font-family: "Outfit", sans-serif;
 }
 
 .wrong2 {
   color: white;
   font-size: 22px;
   font-weight: lighter;
+  font-family: "Outfit", sans-serif;
 }
 
 /* CERCHIO ESTERNO */
@@ -89,14 +102,16 @@ main {
   border-radius: 50%;
   width: 450px;
   height: 450px;
-  /* background: conic-gradient(magenta 0% 33%, cyan 0% 100%); */
+  background: conic-gradient(magenta 0% 33%, cyan 0% 100%);
 }
 
 /* CERCHIO INTERNO */
 
 .inner-circle {
   border-radius: 50%;
-  background-color: #0d0d2b;
+  background-image: url(../../assets/bg.jpg);
+  background-position: center;
+  background-size: cover;
   width: 350px;
   height: 350px;
   margin: auto;
@@ -133,15 +148,9 @@ button {
   margin: auto;
   width: 20%;
   height: 70px;
+  background-color: #401668;
+  border: 2px solid white;
   margin-top: 100px;
-  background-color: grey;
-  padding: 15px 30px;
-  font-size: 1.2rem;
-  box-shadow: 0 0 15px grey;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  transition: all 0.3s ease;
 }
 
 .txtBtn {
@@ -149,8 +158,5 @@ button {
   color: white;
   font-weight: bolder;
   font-size: 30px;
-}
-
-.hidden {
-  display: none;
+  font-family: "Outfit", sans-serif;
 }
